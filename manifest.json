@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "github extension",
+    "description": "Adds Jira and VS Code buttons to GitHub PRs.",
+    "version": "6.9",
+    "permissions": ["nativeMessaging"],
+    "host_permissions": ["https://github.com/*"],
+    "content_scripts": [
+        {
+            "matches": ["https://github.com/vizrt-rnd/*/pull/*"],
+            "js": ["github-extension.js"]
+        }
+    ],
+    "background": {
+        "service_worker": "github-extension-sw.js"
+    }
+}
