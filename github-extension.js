@@ -1,3 +1,15 @@
+const ticketIdQuery = await chrome.storage.local.get('ticket-id-query');
+const ticketIdFormatter = await chrome.storage.local.get('ticket-id-formatter');
+const jiraUrl = await chrome.storage.local.get('jira-url');
+
+const branchQuery = await chrome.storage.local.get('branch-query');
+const branchFormatter = await chrome.storage.local.get('branch-formatter');
+const launcherConfig = await chrome.storage.local.get('launcher-config');
+
+const jiraButtonLocation = await chrome.storage.local.get('jira-button-location');
+const launcherButtonLocation = await chrome.storage.local.get('launcher-button-location');
+
+
 function addButtons() {
     const prHeader = document.querySelector(".js-issue-title");
 
@@ -26,7 +38,7 @@ function addButtons() {
 
         jiraButton.onclick = () => {
             if (issueId) {
-                const jiraUrl = `https://vizrt.atlassian.net/browse/${issueId}`;
+                const jiraUrl = `https://jira.atlassian.net/browse/${issueId}`;
                 window.open(jiraUrl, "_blank");
             }
         };
